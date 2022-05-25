@@ -1,0 +1,51 @@
+
+
+{% load humanize %}
+
+{% if msg %}
+
+
+
+
+
+
+<div style="text-align:center;font-weight:bold;margin-top:0%;margin-bottom:0%;">List of {{status}} Loan Requests for {{ month}}</div>
+   <table style="margin-top:0%;margin-bottom:0%;font-size:1em" width="100%" class="table  table-bordered" id="dataTables-example">   	
+          
+           <tr style='text-align:center'>
+               <td style='font-weight:bold'>S/N</td>               
+               <td style='font-weight:bold'>Name</td>
+               <td>Amount</td>
+               <td>Approve</td>
+               <td>Decline</td>
+             </tr>
+             {% for k in msg %}
+          <tr style='text-align:center'>
+            <td style='font-weight:bold'>{{forloop.counter}}</td>
+            <td> {{k.staffrec.surname}}   {{k.staffrec.firstname}}   {{k.staffrec.othername}}</td>
+            <td style='font-weight:bold'>{{k.volume|intcomma}}</td>
+            <td ><a href="#" style="color:blue" onClick= "approve({{ k.staffrec.id  }})" title="Approve  N{{ k.volume|intcomma}} loan request">Approve</a>
+</td>
+            <td ><a href="#" style="color:red" onClick= "decline({{ k.staffrec.id  }})" title="Decline  N{{ k.volume|intcomma}} loan request">Decline</a>
+</td>
+
+          </tr>
+          {% endfor %}
+       </table>
+     
+
+
+<!-- <input type='hidden' name="thrift" value ={{thrift}}>
+<input type='hidden' name="amount"  value ={{amount}}>
+<input type='hidden'  name="package" value ={{loan}}> -->
+
+
+{% else %}
+
+<div>no records found </div>
+
+
+
+
+
+{% endif %}

@@ -1,0 +1,37 @@
+
+
+{% load humanize %}
+
+<form action="/IIIb/threeb/staff/request_loan/apply/" method='POST'>
+
+   <table style="margin-top:0%;margin-bottom:0%;font-size:1em" width="100%" class="table  table-bordered" id="dataTables-example">
+
+   	
+          
+           <tr >
+               <td style='font-weight:bold'>Monthly Deduction:</td>
+               <td>N {{thrift|intcomma}}</td>
+             </tr>
+
+          <tr>
+            <td style='font-weight:bold'>Duration:</td>
+            <td> {{duration}}  Months</td>
+          </tr>
+       </table>
+     
+
+   <table style="margin-top:0%;margin-bottom:0%;font-size:0.8em" width="100%" class="table  table-bordered" id="dataTables-example">
+          <tr>
+       		<td ><input class="btn btn-lg btn-success btn-block" name="submit" type= "submit" value="Apply">
+       	    </td >
+       	    <td > <input formaction =  "/rwrr/rwef/we/we/we/" class="btn btn-lg btn-success btn-block" name="submit" type= "submit" value="Cancel"></td>
+          </tr>
+   </table>
+
+
+<input type='hidden' name="thrift" value ={{thrift}}>
+<input type='hidden' name="amount"  value ={{amount}}>
+<input type='hidden'  name="package" value ={{loan}}>
+
+
+</form>

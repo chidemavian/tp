@@ -1,0 +1,87 @@
+
+
+
+{% extends 'IIIb/adminsavingsbase.html' %}
+
+{% block content %}
+
+
+<div style="text-align:center">Cash Deposit Form</div>
+   <table style="margin-top:0%;margin-bottom:0%;font-size:0.8em" width="100%" class="table  table-bordered" id="dataTables-example">
+<!-- <div>{{msg}}</div> -->
+    <tr style="text-align:center;">
+      <td  style="background:blue">
+          <a href="/IIIb/threeb/savings/deposit/" style="color:white">Deposit</a>
+      </td>
+      <td ><a href="/IIIb/threeb/savings/deposit/view_transactions/" style="color:red">View Transactions</a></td>
+    </tr>
+</table>
+
+   <table style="margin-top:0%;margin-bottom:0%;font-size:0.8em" width="100%" class="table  table-bordered" id="dataTables-example">
+    <tr> 
+      <td style="font-weight:bold">Staff E-mail:</td>
+      <td>{{msg.email}}:</td>
+    </tr>
+    <tr> 
+      <td style="font-weight:bold">FullName</td>
+    <td>{{msg}} </td>
+  </tr>
+
+   </table>
+
+<!-- 
+   <table style="margin-top:0%;margin-bottom:0%;font-size:0.8em" width="100%" class="table  table-bordered" id="dataTables-example">
+    <tr> 
+      <td style="font-weight:bold">Staff E-mail: {{msg.email}}</td>
+       <td style="font-weight:bold">FullName :</td>
+       <td>{{msg}} </td>
+
+        <td style=" text-align:right;vertical-align:top;width:40%;float:left;" rowspan="2">
+            <img style="width: 100px; height: 100px;text-align:right" src="/staff_pix/{{ msg.photo }}" alt="{{ msg.surname }}" >
+        </td>
+      
+    </tr>
+
+    <tr> 
+     
+  </tr>
+
+   </table>
+
+    -->
+
+
+
+   <table style="margin-top:0%;margin-bottom:0%;font-size:0.8em" width="100%" class="table  table-bordered" id="dataTables-example">
+
+       <form action="/IIIb/threeb/savings/deposit/save/" method="POST">
+          
+           <tr >
+                 <div class="form-group">
+                    <label for="surname">Amount</label>
+                    <input type="number" autofocus name="amount" class="form-control" id="amount" placeholder="Amount" required>
+                  </div>
+             </tr>   
+       </table>
+         <table style="margin-top:0%;margin-bottom:0%;font-size:0.8em" width="100%" class="table  table-bordered" id="dataTables-example">
+          <tr>
+       <td ><input class="btn btn-lg btn-success btn-block" name="submit" type= "submit" value="Deposit Cash"></td>
+     </tr>
+   </table>
+
+     <input type="hidden" name="email" id="email"  readonly="readonly" value="{{msg.email}}" class ="loginTxtbox">
+       </form>
+
+
+   <script type="text/javascript" >
+        $(document).ready(function() {
+
+            $("#id_amount").focus();
+  
+        });
+    </script>
+
+{% endblock %}
+
+
+

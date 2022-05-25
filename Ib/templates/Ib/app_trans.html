@@ -1,0 +1,67 @@
+
+{% load humanize %}
+
+
+<table style="margin-top:0.5%;margin-bottom:0.6%;text-align:center;font-size:0.4em" width="100%" class="table  table-bordered" id="dataTables-example">
+      
+    <tr style='font-size:0.9em'>
+        <td tyle='font-weight:bold;'>Customer</td>
+        <td > {{ income.customer.customer.surname.upper }}, {{ income.customer.customer.firstname.upper }} {{ income.customer.customer.othername.upper }} </td>
+    </tr>
+    <tr>
+        <td tyle='font-weight:bold;font-size:0.5em'>Date:</td>
+         <td >  {{date1}} </td>
+    </tr>
+
+    <tr>
+        <td tyle='font-weight:bold;font-size:0.9em'>Amount</td>
+         <td >  {{ income.amount|intcomma}} </td>
+    </tr>
+    </table>
+
+<form action ='/vts/thrift/aprrovals/approvalsingletrans/' method = 'POST'>
+
+
+       <input type="hidden" name="merchant" id="merchant"  readonly="readonly" value="{{ income.merchant.id }}" class ="loginTxtbox">
+
+       <input type="hidden" name="mmm" id="mmm"  readonly="readonly" value="{{ income.amount }}" class ="loginTxtbox">
+
+       <input type="hidden" name="date" id="date"  readonly="readonly" value="{{ date }}" class ="loginTxtbox">
+
+        <input type="hidden" name="date1" id="date1"  readonly="readonly" value="{{ date1 }}" class ="loginTxtbox">
+
+        <input type="hidden" name="trans" id="trans"  readonly="readonly" value="{{income.id}}" class ="loginTxtbox">
+         
+     <table style="margin-top:0%;margin-bottom:0%" width="100%" class="table  table-bordered" id="dataTables-example">
+
+        <tr> 
+    <td> 
+        <div class="form-group" >
+                 <input type="number" autofocus name="cash" class="form-control" id="cash" placeholder="Enter cash here">
+            </div>
+      </td>
+  </tr>
+
+
+       <tr>
+      <td >
+      <input class="btn btn-lg btn-success btn-block" name="submit" type= "submit"value="Approve ">
+    </td>
+  </tr>   
+</table>
+
+</form>
+
+
+<!-- 
+    <script language="javascript" type="text/javascript">
+        function disable(f)
+        {
+            var button = f.elements['submit'];
+            button.value = 'Processing';
+            button.disabled = 'true';
+            return true;
+        }
+    </script> -->
+
+    

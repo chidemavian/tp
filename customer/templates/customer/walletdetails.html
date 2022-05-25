@@ -1,0 +1,60 @@
+
+{% extends 'customer/adminbase.html' %}
+
+{% block content %}
+
+
+<div style="text-align:center">Account Details </div>
+   <table style="margin-top:0%;margin-bottom:01%" width="100%" class="table  table-bordered" id="dataTables-example">
+
+    <tr style="text-align:center;">
+        <td  style="background:blue;font-size:0.9em"><a href="/customer/customers/newsub/" style="color:white"> Existing</a></td>
+        <td><a href="#" style="color:red;font-size:0.9em">Mass</a></td>
+    </tr>
+</table>
+<div style="color:red;text-align:center">{{msg}}</div>
+
+<tr >
+
+
+          <table width="100%" class="table  table-bordered" id="dataTables-example">
+           <tr >
+            <td style='font-weight:bold' >Name: </td><td>{{ details.surname}}  {{ details.firstname}}   {{ details.othername}}</td>
+           </tr>
+           <tr >
+            <td style='font-weight:bold' >Customer ID: </td><td>{{ details.id}} </td>
+           </tr>
+            <tr>
+              <td style='font-weight:bold'>Account No:</td> <td>{{ details.wallet }}</td>
+            </tr>
+              <tr>
+                <td style='font-weight:bold'>Email:</td><td >{{ details.email}}</td></tr>
+
+          <tr>
+            <td style='font-weight:bold'>Can log in :</td><td>{{ details.UX}}</td>
+          </tr>
+            <tr><td style='font-weight:bold'>Active:</td><td>{{details.status}}</td></tr>
+               <tr>
+                <td style='font-weight:bold'>Sms Alert:</td><td>{{details.sms}}</td></tr>
+               <tr>
+                <td style='font-weight:bold'>Email Notification:</td><td>{{details.get_email}}</td>
+              </tr>
+              <tr>
+            <td style='font-weight:bold'>C / O:</td> <td> {{ details.merchant.staff.surname}}  {{ details.merchant.staff.firstname}}   {{ details.merchant.staff.othername}}  </td></tr>
+            <tr>
+            <td style='font-weight:bold'>C/O ID:</td><td> {{ details.merchant.id}}</td>
+          </tr>
+
+       </table>
+
+    
+        <td ><a class="btn btn-lg btn-success btn-block" href="/customer/customers/newsub/" style="color:white">Continue</a></td>
+
+
+       
+</tr>
+
+{% endblock %}
+
+
+
